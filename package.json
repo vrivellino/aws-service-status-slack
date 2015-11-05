@@ -1,0 +1,27 @@
+{
+  "name": "aws-status-slack-feed",
+  "version": "0.1.0",
+  "author": "Vincent Rivellino",
+  "description": "Slack Integration for AWS Status",
+  "license": "MIT",
+  "homepage": "https://github.com/vrivellino/aws-status-slack-feed#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vrivellino/aws-status-slack-feed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vrivellino/aws-status-slack-feed/issues"
+  },
+  "main": "server.js",
+  "scripts": {
+    "test": "jshint server.js lib/*.js && jshint -c .jshintrc-testfiles test/unit/*.js && mocha test/unit/*.js"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "feedparser": "^1.1.4"
+  }
+}
