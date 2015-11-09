@@ -1,0 +1,3 @@
+*.zip
+boto
+boto-*.dist-info
