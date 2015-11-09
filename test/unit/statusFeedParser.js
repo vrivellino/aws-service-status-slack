@@ -25,7 +25,8 @@ describe('statusFeedParser()', function() {
     });
 
     it('description and summary are identical', function() {
-      expect(_this.item.summary).to.be.equal(_this.item.description);
+      expect(_this.itemList[0].summary)
+        .to.be.equal(_this.itemList[0].description);
     });
 
     it('results in AwsStatusItems', function () {
