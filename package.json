@@ -14,9 +14,11 @@
   },
   "main": "server.js",
   "scripts": {
-    "test": "jshint --verbose server.js lib/*.js && jshint --verbose -c .jshintrc-testfiles test/unit/*.js && mocha test/unit/*.js"
+    "test": "jshint --verbose server.js lib/*.js && jshint --verbose -c .jshintrc-testfiles test/unit/*.js && mocha test/unit/*.js",
+    "integration": "mocha test/integration/*.js"
   },
   "devDependencies": {
+    "aws-sdk": "^2.2.15",
     "chai": "^3.4.0",
     "jshint": "^2.8.0",
     "mocha": "^2.3.3"
