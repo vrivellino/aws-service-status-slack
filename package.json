@@ -14,7 +14,7 @@
   },
   "main": "server.js",
   "scripts": {
-    "test": "jshint server.js lib/*.js && jshint -c .jshintrc-testfiles test/unit/*.js && mocha test/unit/*.js"
+    "test": "jshint --verbose server.js lib/*.js && jshint --verbose -c .jshintrc-testfiles test/unit/*.js && mocha test/unit/*.js"
   },
   "devDependencies": {
     "chai": "^3.4.0",
