@@ -4,23 +4,25 @@ var expect           = require('chai').expect;
 var AwsStatusItem    = require('../../lib/awsStatusItem.js');
 var statusFeedParser = require('../../lib/statusFeedParser.js');
 
-var filename = 'test/fixtures/aws-status-rss-20151104-211913.xml';
+var rssfeed = 'http://status.aws.amazon.com/rss/all.rss';
 
-describe('statusFeedParser()', function() {
-  describe('parse local file', function() {
+describe('statusFeedParser()', function () {
+  describe('parse AWS services status rss feed', function() {
     var _this = this;
-    _this.itemList = [];
-    beforeEach(function(done) {
-      statusFeedParser(filename, function(err, data) {
+    before(function(done) {
+      _this.itemList = [];
+      _this.item = null;
+      statusFeedParser(rssfeed, function(err, data) {
         if (err) {
           throw err;
         }
         _this.itemList = data;
+        _this.item = data[0];
         done();
       });
     });
 
-    it('has 15 results', function() {
+    it('has 15 results', function () {
       expect(_this.itemList).to.have.length(15);
     });
 
