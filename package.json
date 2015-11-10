@@ -14,8 +14,8 @@
   },
   "main": "server.js",
   "scripts": {
-    "test": "npm ls && jshint --verbose server.js lib/*.js && jshint --verbose -c .jshintrc-testfiles test/unit/*.js && mocha test/unit/*.js",
-    "integration": "mocha test/integration/*.js"
+    "test": "npm ls && ./node_modules/.bin/jshint --verbose server.js lib/*.js && ./node_modules/.bin/jshint --verbose -c .jshintrc-testfiles test/unit/*.js && ./node_modules/.bin/mocha test/unit/*.js",
+    "integration": "./node_modules/.bin/mocha test/integration/*.js"
   },
   "devDependencies": {
     "aws-sdk": "^2.2.15",
