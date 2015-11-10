@@ -9,14 +9,19 @@ var rss2 = 'test/fixtures/aws-status-rss-20151105-062131.xml';
 describe('statusFeed', function() {
   var _this = this;
   _this.statusFeed = new StatusFeed(rss1);
+  _this.fetchResult = 0;
   before(function (done) {
-    _this.statusFeed.fetch(function(err) {
+    _this.statusFeed.fetch(function(err, data) {
       if (err) { throw err; }
+      _this.fetchResult = data;
       done();
     });
   });
 
   describe('.fetch()', function () {
+    it('result is 15', function () {
+      expect(_this.fetchResult).to.equal(15);
+    });
     it('produces 15 unprocessed', function () {
       expect(_this.statusFeed.unprocessed()).to.equal(15);
     });
