@@ -85,6 +85,12 @@ describe('awsStatusItem', function () {
       _this.slackAttachment = _this.slackAttachmentList[0];
     });
 
+    describe('.guid()', function () {
+      it('macthes', function () {
+        expect(_this.awsStatusItem.guid()).to.equal(_this.itemId);
+      });
+    });
+
     describe('.getSlackAttachments()', function () {
       it('one attachment', function () {
         expect(_this.slackAttachmentList).to.have.length(1);
