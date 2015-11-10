@@ -21,10 +21,10 @@
     "aws-sdk": "^2.2.15",
     "chai": "^3.4.0",
     "jshint": "^2.8.0",
-    "mocha": "^2.3.3",
-    "request": "^2.65.0"
+    "mocha": "^2.3.3"
   },
   "dependencies": {
-    "feedparser": "^1.1.4"
+    "feedparser": "^1.1.4",
+    "request": "^2.65.0"
   }
 }
