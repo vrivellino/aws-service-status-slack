@@ -1,10 +1,11 @@
 'use strict';
 
-var Slack      = require('slack-node');
-var StatusFeed = require(__dirname + '/lib/statusFeed.js');
+var Slack            = require('slack-node');
+var StatusFeed       = require(__dirname + '/lib/statusFeed.js');
+var statusFeedParser = require(__dirname + '/lib/statusFeedParser.js');
 
-var awsSvcStatusFeed =
-  new StatusFeed('http://status.aws.amazon.com/rss/all.rss');
+var awsSvcStatusFeed = new StatusFeed();
+var rssFeed = 'http://status.aws.amazon.com/rss/all.rss';
 var iconUrl = 'http://i.imgur.com/XhzVhKC.png';
 var debug = false;
 var webhookUri;
@@ -17,17 +18,18 @@ webhookUri = process.env.AWS_STATUS_FEED_SLACK_WEBHOOK;
 slack.setWebhook(webhookUri);
 
 function awsServiceStatusFetch() {
-  awsSvcStatusFeed.fetch(function (err, newUnprocessedItems) {
+  statusFeedParser(rssFeed, function (err, unprocessedItems) {
     if (err) {
       console.log(err);
     } else {
-      console.log(newUnprocessedItems + ' unprocessed items fetched from feed');
+      console.log(unprocessedItems.length +
+          ' unprocessed items fetched from ' + rssFeed);
+      awsSvcStatusFeed.preprocess(unprocessedItems);
     }
   });
 }
 
 function awsServiceStatusProcess() {
-  awsSvcStatusFeed.preprocess();
   awsSvcStatusFeed.processPending(function (statusItem, cb) {
     var slackParams = {
       username: 'AWS Status Feed',
