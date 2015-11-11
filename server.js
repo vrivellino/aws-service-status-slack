@@ -1,6 +1,7 @@
 'use strict';
 
 var Slack            = require('slack-node');
+var winston          = require('winston');
 var StatusFeed       = require(__dirname + '/lib/statusFeed.js');
 var statusFeedParser = require(__dirname + '/lib/statusFeedParser.js');
 
@@ -20,16 +21,17 @@ slack.setWebhook(webhookUri);
 function awsServiceStatusFetch() {
   statusFeedParser(rssFeed, function (err, unprocessedItems) {
     if (err) {
-      console.log(err);
+      winston.log('error', err);
     } else {
-      console.log(unprocessedItems.length +
-          ' unprocessed items fetched from ' + rssFeed);
+      winston.log('info', unprocessedItems.length +
+        ' RSS items fetched from ' + rssFeed);
       awsSvcStatusFeed.preprocess(unprocessedItems);
     }
   });
 }
 
 function awsServiceStatusProcess() {
+  winston.log('info', 'Processing pending statuses');
   awsSvcStatusFeed.processPending(function (statusItem, cb) {
     var slackParams = {
       username: 'AWS Status Feed',
@@ -39,8 +41,9 @@ function awsServiceStatusProcess() {
       attachments: statusItem.getSlackAttachments()
     };
     function webhookCb(err, res) {
-      if (err) { console.log(err); }
-      else if (debug) { console.log(res); }
+      if (err) { winston.log(err); }
+      else if (debug) { winston.log(res); }
+      else { winston.log(statusItem.guid() + ' sent to ' + slack.webhookUrl); }
       cb(err, statusItem);
     }
     slack.webhook(slackParams, webhookCb);

@@ -21,7 +21,8 @@
     "aws-sdk": "^2.2.15",
     "chai": "^3.4.0",
     "jshint": "^2.8.0",
-    "mocha": "^2.3.3"
+    "mocha": "^2.3.3",
+    "winston": "^2.1.0"
   },
   "dependencies": {
     "feedparser": "^1.1.4",
