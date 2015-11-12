@@ -20,6 +20,7 @@
   "devDependencies": {
     "aws-sdk": "^2.2.15",
     "chai": "^3.4.0",
+    "express": "^4.13.3",
     "jshint": "^2.8.0",
     "mocha": "^2.3.3",
     "winston": "^2.1.0"
