@@ -5,11 +5,19 @@ var winston          = require('winston');
 var StatusFeed       = require(__dirname + '/lib/statusFeed.js');
 var statusFeedParser = require(__dirname + '/lib/statusFeedParser.js');
 
-var awsSvcStatusFeed = new StatusFeed();
+// fetch RSS feed every 5 minutes
+var rssFetchInterval = 5 * 60 * 1000;
+// process pending (unsent) items every 10s
+var statusProcessInterval = 10 * 1000;
+// purge old item status every hour
+var itemStatusPurgeInterval = 60 * 60 * 1000;
+
 var rssFeed = 'http://status.aws.amazon.com/rss/all.rss';
 var iconUrl = 'http://i.imgur.com/XhzVhKC.png';
 var debug = false;
 var webhookUri;
+
+var awsSvcStatusFeed = new StatusFeed();
 var slack = new Slack();
 
 // replace with command line args? use env vars?
@@ -50,11 +58,6 @@ function awsServiceStatusProcess() {
   });
 }
 
-// purge items every hour
-setInterval(awsSvcStatusFeed.purgeItemStatus, 60 * 60 * 1000);
-
-// fetch items ever 5 minutes
-setInterval(awsServiceStatusFetch, 5 * 60 * 1000);
-
-// process items every 30s
-setInterval(awsServiceStatusProcess, 30 * 1000);
+setInterval(awsSvcStatusFeed.purgeItemStatus, itemStatusPurgeInterval);
+setInterval(awsServiceStatusFetch, rssFetchInterval);
+setInterval(awsServiceStatusProcess, statusProcessInterval);
