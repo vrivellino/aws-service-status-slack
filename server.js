@@ -1,63 +1,39 @@
 'use strict';
 
-var Slack            = require('slack-node');
-var winston          = require('winston');
-var StatusFeed       = require(__dirname + '/lib/statusFeed.js');
-var statusFeedParser = require(__dirname + '/lib/statusFeedParser.js');
+var winston           = require('winston');
+var AwsSvcStatusSlack = require(__dirname + '/lib/aws-service-status-slack.js');
 
+/*** DEFAULTS ***/
 // fetch RSS feed every 5 minutes
 var rssFetchInterval = 5 * 60 * 1000;
 // process pending (unsent) items every 10s
 var statusProcessInterval = 10 * 1000;
 // purge old item status every hour
 var itemStatusPurgeInterval = 60 * 60 * 1000;
+// AWS Service Status RSS feed URL
+var rssUrl = 'http://status.aws.amazon.com/rss/all.rss';
 
-var rssFeed = 'http://status.aws.amazon.com/rss/all.rss';
-var iconUrl = 'http://i.imgur.com/XhzVhKC.png';
-var debug = false;
-var webhookUri;
+var webhookUrl;
+var asss;
 
-var awsSvcStatusFeed = new StatusFeed();
-var slack = new Slack();
+winston.level = 'info';
 
-// replace with command line args? use env vars?
-webhookUri = process.env.AWS_STATUS_FEED_SLACK_WEBHOOK;
-// iconUrl
-
-slack.setWebhook(webhookUri);
-
-function awsServiceStatusFetch() {
-  statusFeedParser(rssFeed, function (err, unprocessedItems) {
-    if (err) {
-      winston.log('error', err);
-    } else {
-      winston.log('info', unprocessedItems.length +
-        ' RSS items fetched from ' + rssFeed);
-      awsSvcStatusFeed.preprocess(unprocessedItems);
-    }
-  });
+if (process.env.hasOwnproperty('AWS_STATUS_FEED_SLACK_WEBHOOK')) {
+  webhookUrl = process.env.AWS_STATUS_FEED_SLACK_WEBHOOK;
 }
 
-function awsServiceStatusProcess() {
-  winston.log('info', 'Processing pending statuses');
-  awsSvcStatusFeed.processPending(function (statusItem, cb) {
-    var slackParams = {
-      username: 'AWS Status Feed',
-      /*jshint -W106*/
-      icon_emoji: iconUrl,
-      /*jshint +W106*/
-      attachments: statusItem.getSlackAttachments()
-    };
-    function webhookCb(err, res) {
-      if (err) { winston.log(err); }
-      else if (debug) { winston.log(res); }
-      else { winston.log(statusItem.guid() + ' sent to ' + slack.webhookUrl); }
-      cb(err, statusItem);
-    }
-    slack.webhook(slackParams, webhookCb);
-  });
-}
+// Placeholder
+/* options = {
+  webHookUri: 'http://something',
+  iconUrl: 'http://i.imgur.com/XhzVhKC.png',
+  username: 'AWS Service Status',
+  includeRegions: awsRegions.splice(),
+  excludeRegions: [],
+  channel: null
+};
+*/
 
-setInterval(awsSvcStatusFeed.purgeItemStatus, itemStatusPurgeInterval);
-setInterval(awsServiceStatusFetch, rssFetchInterval);
-setInterval(awsServiceStatusProcess, statusProcessInterval);
+asss = new AwsSvcStatusSlack(rssUrl, [{webHookUri: webhookUrl}]);
+setInterval(asss.awsServiceStatusFetch, rssFetchInterval);
+setInterval(asss.awsServiceStatusProcess, statusProcessInterval);
+setInterval(asss.purgeItemStatus, itemStatusPurgeInterval);
