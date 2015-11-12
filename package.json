@@ -1,16 +1,16 @@
 {
-  "name": "aws-status-slack-feed",
+  "name": "aws-service-status-slack",
   "version": "0.1.0",
   "author": "Vincent Rivellino",
-  "description": "Slack Integration for AWS Status",
+  "description": "Slack Integration for AWS Service Status RSS Feed",
   "license": "MIT",
   "homepage": "https://github.com/vrivellino/aws-status-slack-feed#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vrivellino/aws-status-slack-feed.git"
+    "url": "https://github.com/vrivellino/aws-service-status-slack.git"
   },
   "bugs": {
-    "url": "https://github.com/vrivellino/aws-status-slack-feed/issues"
+    "url": "https://github.com/vrivellino/aws-service-status-slack/issues"
   },
   "main": "server.js",
   "scripts": {
