@@ -7,6 +7,9 @@ var StatusFeed       = require(__dirname + '/../../lib/statusFeed.js');
 var rss1 = 'test/fixtures/aws-status-rss/2015-11-04-21:19:13.170424.xml';
 var rss2 = 'test/fixtures/aws-status-rss/2015-11-05-06:21:31.614396.xml';
 
+var rss3 = 'test/fixtures/aws-status-rss/2015-11-05-10:36:35.787230.xml';
+var rss4 = 'test/fixtures/aws-status-rss/2015-11-05-10:51:32.181070.xml';
+
 describe('statusFeed', function() {
   var _this = this;
   _this.statusFeed = new StatusFeed();
@@ -83,6 +86,59 @@ describe('statusFeed', function() {
       });
       it('processes 1', function () {
         expect(_this.processedItems).to.equal(1);
+      });
+    });
+
+    describe('.purgeItemStatus()', function() {
+      before(function () {
+        _this.purgeItemStatusResult =
+          _this.statusFeed.purgeItemStatus(_this.purgeTime);
+      });
+      it('purges 1', function () {
+        expect(_this.purgeItemStatusResult).to.equal(1);
+      });
+    });
+  });
+});
+
+describe('statusFeed - duplicate message text', function() {
+  var _this = this;
+  _this.statusFeed = new StatusFeed();
+  _this.unprocessedRssItems = [];
+  before(function (done) {
+    statusFeedParser(rss3, function(err, data) {
+      if (err) { throw err; }
+      _this.unprocessedRssItems = data;
+      done();
+    });
+  });
+
+  describe('.preProcess()', function() {
+    before(function () {
+      _this.statusFeed.preProcess(_this.unprocessedRssItems);
+    });
+    it('produces no pending', function () {
+      expect(_this.statusFeed.pending()).to.equal(0);
+    });
+  });
+
+  describe('After rss4 is fetched', function() {
+    before(function (done) {
+      _this.purgeTime = Date.now();
+      _this.unprocessedRssItems = [];
+      statusFeedParser(rss4, function(err, data) {
+        if (err) { throw err; }
+        _this.unprocessedRssItems = data;
+        done();
+      });
+    });
+
+    describe('.preProcess()', function () {
+      before(function () {
+        _this.statusFeed.preProcess(_this.unprocessedRssItems);
+      });
+      it('produces 1 pending', function () {
+        expect(_this.statusFeed.pending()).to.equal(1);
       });
     });
 
