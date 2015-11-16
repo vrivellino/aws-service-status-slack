@@ -1,6 +1,6 @@
 {
   // Mocha globals
-  "predef": [ "describe", "it", "before", "beforeEach" ],
+  "predef": [ "describe", "it", "before", "beforeEach", "after", "afterEach" ],
 
   /*
    * ENVIRONMENTS
