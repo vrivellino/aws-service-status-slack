@@ -93,6 +93,11 @@ function Constructor() {
   this.serviceCount = function () {
     return messageCounts.service;
   };
+
+  this.resetMessageCounts = function () {
+    messageCount = 0;
+    messageCounts = {region: {}, service: {}};
+  };
 }
 
 module.exports = Constructor;
