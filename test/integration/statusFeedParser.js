@@ -9,7 +9,7 @@ var statusFeedParser = require(__dirname + '/../../lib/statusFeedParser.js');
 var rssfeed = 'http://status.aws.amazon.com/rss/all.rss';
 
 var buildHistoricalList = function(done) {
-  var dir = __dirname + '/../fixtures/series';
+  var dir = __dirname + '/../fixtures/aws-status-rss';
   var results = [];
   fs.readdir(dir, function(err, list) {
     if (err) return done(err);

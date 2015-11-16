@@ -4,8 +4,8 @@ var expect           = require('chai').expect;
 var statusFeedParser = require(__dirname + '/../../lib/statusFeedParser.js');
 var StatusFeed       = require(__dirname + '/../../lib/statusFeed.js');
 
-var rss1 = 'test/fixtures/aws-status-rss-20151104-211913.xml';
-var rss2 = 'test/fixtures/aws-status-rss-20151105-062131.xml';
+var rss1 = 'test/fixtures/aws-status-rss/2015-11-04-21:19:13.170424.xml';
+var rss2 = 'test/fixtures/aws-status-rss/2015-11-05-06:21:31.614396.xml';
 
 describe('statusFeed', function() {
   var _this = this;

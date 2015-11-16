@@ -4,7 +4,8 @@ var express    = require('express');
 var winston    = require('winston');
 
 function Constructor() {
-  var slackWebhookCount = 0;
+  var messageCount = 0;
+  var messageCounts = {region: {}, service: {}};
   var app = express();
   var server;
 
@@ -21,20 +22,51 @@ function Constructor() {
     });
   }
 
+  function updateMessageCounts(slackMsgFields) {
+    var i;
+    var fieldTitle;
+    var fieldValue;
+
+    for (i = 0; i < slackMsgFields.length; i++) {
+      fieldTitle = null;
+      fieldValue = null;
+      if (slackMsgFields[i].hasOwnProperty('title')) {
+        fieldTitle = slackMsgFields[i].title.toLowerCase();
+      }
+      if (slackMsgFields[i].hasOwnProperty('value')) {
+        fieldValue = slackMsgFields[i].value;
+      }
+
+      if (fieldTitle && fieldValue) {
+        if (messageCounts.hasOwnProperty(fieldTitle)) {
+          if (messageCounts[fieldTitle].hasOwnProperty(fieldValue)) {
+            ++messageCounts[fieldTitle][fieldValue];
+          } else {
+            ++messageCounts[fieldTitle][fieldValue];
+          }
+        }
+      }
+    }
+  }
+
   // POST requests to /slack-webhook
   app.post('/slack-webhook', rawBody, function (req, res) {
     var requestBodyParsed = false;
+    var slackMsg = {};
     winston.log('info', 'POST Request received for /slack-webhook: ' +
       req.rawBody);
     try {
-      JSON.parse(req.rawBody);
+      slackMsg = JSON.parse(req.rawBody);
       requestBodyParsed = true;
     } catch (e) {
       winston.log('error', 'Failed to parse request body: ' + req.rawBody);
     }
+    if (slackMsg.hasOwnProperty('fields') && Array.isArray(slackMsg.fields)) {
+      updateMessageCounts(slackMsg.fields);
+    }
     res.setHeader('Content-Type', 'text/plain');
     if (requestBodyParsed) {
-      ++slackWebhookCount;
+      ++messageCount;
       res.send('ok');
     } else {
       res.status(500).send('Failed');
@@ -52,8 +84,14 @@ function Constructor() {
   };
 
   // expose counter of slack webhook POSTs
-  this.slackWebhookCount = function () {
-    return slackWebhookCount;
+  this.messageCount = function () {
+    return messageCount;
+  };
+  this.regionCount = function () {
+    return messageCounts.region;
+  };
+  this.serviceCount = function () {
+    return messageCounts.service;
   };
 }
 

@@ -7,17 +7,17 @@ else
     sed='sed -r'
 fi
 
-series_dir="$(pwd)/series"
+sync_dir="$(pwd)/aws-status-rss"
 mkdir -p new
 pushd new > /dev/null
 aws s3 sync s3://vr-aws-status-fetch/aws-status-rss/ ./
 
 for f in 20*/* ; do
-    mv "$f" "$series_dir/$(dirname $f)-$(basename $f).xml"
+    mv "$f" "$sync_dir/$(dirname $f)-$(basename $f).xml"
 done
 
 popd > /dev/null
-pushd "$series_dir" > /dev/null
+pushd "$sync_dir" > /dev/null
 
 last_f=''
 for f in *.xml ; do

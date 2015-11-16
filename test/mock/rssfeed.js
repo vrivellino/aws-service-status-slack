@@ -5,7 +5,7 @@ var fs         = require('fs');
 var winston    = require('winston');
 
 function Constructor() {
-  var rssDir = __dirname + '/../fixtures/series';
+  var rssDir = __dirname + '/../fixtures/aws-status-rss';
   var rssResponseIndex = 0;
   var rssFiles = fs.readdirSync(rssDir).sort();
 

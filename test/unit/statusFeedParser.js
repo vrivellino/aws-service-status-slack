@@ -4,7 +4,7 @@ var expect           = require('chai').expect;
 var AwsStatusItem    = require('../../lib/awsStatusItem.js');
 var statusFeedParser = require('../../lib/statusFeedParser.js');
 
-var filename = 'test/fixtures/aws-status-rss-20151104-211913.xml';
+var filename = 'test/fixtures/aws-status-rss/2015-11-04-21:19:13.170424.xml';
 
 describe('statusFeedParser()', function() {
   describe('parse local file', function() {
