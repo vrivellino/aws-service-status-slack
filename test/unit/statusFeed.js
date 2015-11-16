@@ -19,9 +19,9 @@ describe('statusFeed', function() {
     });
   });
 
-  describe('.preprocess()', function() {
+  describe('.preProcess()', function() {
     before(function () {
-      _this.statusFeed.preprocess(_this.unprocessedRssItems);
+      _this.statusFeed.preProcess(_this.unprocessedRssItems);
     });
     it('produces no pending', function () {
       expect(_this.statusFeed.pending()).to.equal(0);
@@ -58,9 +58,9 @@ describe('statusFeed', function() {
       });
     });
 
-    describe('.preprocess()', function () {
+    describe('.preProcess()', function () {
       before(function () {
-        _this.statusFeed.preprocess(_this.unprocessedRssItems);
+        _this.statusFeed.preProcess(_this.unprocessedRssItems);
       });
       it('produces 1 pending', function () {
         expect(_this.statusFeed.pending()).to.equal(1);
