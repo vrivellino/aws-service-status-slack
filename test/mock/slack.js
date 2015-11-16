@@ -24,7 +24,8 @@ function Constructor() {
   // POST requests to /slack-webhook
   app.post('/slack-webhook', rawBody, function (req, res) {
     var requestBodyParsed = false;
-    winston.log('info', 'POST Request received for /slack-webhook');
+    winston.log('info', 'POST Request received for /slack-webhook: ' +
+      req.rawBody);
     try {
       JSON.parse(req.rawBody);
       requestBodyParsed = true;
