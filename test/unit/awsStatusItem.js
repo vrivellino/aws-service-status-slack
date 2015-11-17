@@ -91,6 +91,18 @@ describe('awsStatusItem', function () {
       });
     });
 
+    describe('.region()', function () {
+      it('macthes', function () {
+        expect(_this.awsStatusItem.region()).to.equal(defaultRegion);
+      });
+    });
+
+    describe('.service()', function () {
+      it('macthes', function () {
+        expect(_this.awsStatusItem.service()).to.equal('ec2');
+      });
+    });
+
     describe('.getSlackAttachments()', function () {
       it('one attachment', function () {
         expect(_this.slackAttachmentList).to.have.length(1);
