@@ -27,7 +27,7 @@ if (process.env.hasOwnproperty('AWS_STATUS_FEED_SLACK_WEBHOOK')) {
   webHookUri: 'http://something',
   iconUrl: 'http://i.imgur.com/XhzVhKC.png',
   username: 'AWS Service Status',
-  includeRegions: awsRegions.splice(),
+  includeRegions: awsRegions.slice(),
   excludeRegions: [],
   channel: null
 };
