@@ -120,13 +120,14 @@ describe('end-to-end simulation with rss and slack mocks', function () {
         }, 50);
       });
 
-      it('messages sent', function () {
+      it(expectedMessageCounts[i].sent + ' total messages sent', function () {
         expect(_this.testStatus[i].slackMsgsSent)
           .to.equal(expectedMessageCounts[i].sent);
       });
 
       slackConfigs.forEach(function (config, j) {
-        it('messages received - config ' + j, function () {
+        it(expectedMessageCounts[i].recv[j] +
+            ' messages received - config ' + j, function () {
           expect(_this.testStatus[i].slackMsgsRecv[j])
             .to.equal(expectedMessageCounts[i].recv[j]);
         });
