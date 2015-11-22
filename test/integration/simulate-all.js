@@ -27,7 +27,19 @@ var expectedMessageCounts = [
   {sent: 2, recv: [1, 0, 1]}, // 9
   {sent: 1, recv: [1, 0, 0]}, // 10
   {sent: 1, recv: [1, 0, 0]}, // 11
-  {sent: 1, recv: [1, 0, 0]}  // 12
+  {sent: 1, recv: [1, 0, 0]}, // 12
+  {sent: 2, recv: [1, 0, 1]}, // 13
+  {sent: 2, recv: [1, 0, 1]}, // 14
+  {sent: 2, recv: [1, 0, 1]}, // 15
+  {sent: 2, recv: [1, 0, 1]}, // 16
+  {sent: 2, recv: [1, 0, 1]}, // 17
+  {sent: 2, recv: [1, 0, 1]}, // 18
+  {sent: 4, recv: [2, 0, 2]}, // 19
+  {sent: 4, recv: [2, 0, 2]}, // 20
+  {sent: 2, recv: [1, 0, 1]}, // 21
+  {sent: 2, recv: [1, 0, 1]}, // 22
+  {sent: 2, recv: [1, 0, 1]}, // 23
+  {sent: 2, recv: [1, 0, 1]}  // 24
 ];
 
 winston.level = 'warn';
