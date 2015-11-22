@@ -18,7 +18,7 @@ var asss;
 
 winston.level = 'info';
 
-if (process.env.hasOwnproperty('AWS_STATUS_FEED_SLACK_WEBHOOK')) {
+if (process.env.hasOwnProperty('AWS_STATUS_FEED_SLACK_WEBHOOK')) {
   webhookUrl = process.env.AWS_STATUS_FEED_SLACK_WEBHOOK;
 }
 
