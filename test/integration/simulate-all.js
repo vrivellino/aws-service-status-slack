@@ -10,36 +10,41 @@ var SlackMock         = require(__dirname + '/../mock/slack.js');
 var slackConfigs = [
   {},
   {includeRegions: ['sa-east-1']},
-  {excludeRegions: ['sa-east-1', 'us-west-1']}
+  {excludeRegions: ['sa-east-1', 'us-west-1']},
+
+  {includeServices: ['ec2', 'ses', 'vpc']},
+  {excludeServices: ['cloudwatch']},
+  {includeRegions: ['us-east-1', 'us-west-2', 'eu-west-1'],
+   excludeServices: ['directoryservice']}
 ];
 var rssUrl;
 
 var expectedMessageCounts = [
-  {sent: 0, recv: [0, 0, 0]}, // 0
-  {sent: 2, recv: [1, 1, 0]}, // 1
-  {sent: 2, recv: [1, 1, 0]}, // 2
-  {sent: 2, recv: [1, 1, 0]}, // 3
-  {sent: 2, recv: [1, 1, 0]}, // 4
-  {sent: 2, recv: [1, 1, 0]}, // 5
-  {sent: 2, recv: [1, 1, 0]}, // 6
-  {sent: 2, recv: [1, 0, 1]}, // 7
-  {sent: 2, recv: [1, 0, 1]}, // 8
-  {sent: 2, recv: [1, 0, 1]}, // 9
-  {sent: 1, recv: [1, 0, 0]}, // 10
-  {sent: 1, recv: [1, 0, 0]}, // 11
-  {sent: 1, recv: [1, 0, 0]}, // 12
-  {sent: 2, recv: [1, 0, 1]}, // 13
-  {sent: 2, recv: [1, 0, 1]}, // 14
-  {sent: 2, recv: [1, 0, 1]}, // 15
-  {sent: 2, recv: [1, 0, 1]}, // 16
-  {sent: 2, recv: [1, 0, 1]}, // 17
-  {sent: 2, recv: [1, 0, 1]}, // 18
-  {sent: 4, recv: [2, 0, 2]}, // 19
-  {sent: 4, recv: [2, 0, 2]}, // 20
-  {sent: 2, recv: [1, 0, 1]}, // 21
-  {sent: 2, recv: [1, 0, 1]}, // 22
-  {sent: 2, recv: [1, 0, 1]}, // 23
-  {sent: 2, recv: [1, 0, 1]}  // 24
+  {sent: 0, recv: [0, 0, 0, 0, 0, 0]}, // 0
+  {sent: 2, recv: [1, 1, 0, 0, 0, 0]}, // 1
+  {sent: 2, recv: [1, 1, 0, 0, 0, 0]}, // 2
+  {sent: 2, recv: [1, 1, 0, 0, 0, 0]}, // 3
+  {sent: 2, recv: [1, 1, 0, 0, 0, 0]}, // 4
+  {sent: 2, recv: [1, 1, 0, 0, 0, 0]}, // 5
+  {sent: 2, recv: [1, 1, 0, 0, 0, 0]}, // 6
+  {sent: 5, recv: [1, 0, 1, 1, 1, 1]}, // 7
+  {sent: 5, recv: [1, 0, 1, 1, 1, 1]}, // 8
+  {sent: 5, recv: [1, 0, 1, 1, 1, 1]}, // 9
+  {sent: 3, recv: [1, 0, 0, 1, 1, 0]}, // 10
+  {sent: 3, recv: [1, 0, 0, 1, 1, 0]}, // 11
+  {sent: 3, recv: [1, 0, 0, 1, 1, 0]}, // 12
+  {sent: 3, recv: [1, 0, 1, 0, 0, 1]}, // 13
+  {sent: 3, recv: [1, 0, 1, 0, 0, 1]}, // 14
+  {sent: 3, recv: [1, 0, 1, 0, 0, 1]}, // 15
+  {sent: 3, recv: [1, 0, 1, 0, 0, 1]}, // 16
+  {sent: 3, recv: [1, 0, 1, 0, 0, 1]}, // 17
+  {sent: 3, recv: [1, 0, 1, 0, 0, 1]}, // 18
+  {sent: 7, recv: [2, 0, 2, 0, 2, 1]}, // 19
+  {sent: 8, recv: [2, 0, 2, 0, 2, 2]}, // 20
+  {sent: 4, recv: [1, 0, 1, 0, 1, 1]}, // 21
+  {sent: 4, recv: [1, 0, 1, 0, 1, 1]}, // 22
+  {sent: 5, recv: [1, 0, 1, 1, 1, 1]}, // 23
+  {sent: 5, recv: [1, 0, 1, 1, 1, 1]}, // 24
 ];
 
 winston.level = 'warn';
