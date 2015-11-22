@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Amazon Web Services Service Status</title>
+    <link>http://status.aws.amazon.com/</link>
+    <link rel="alternate" href="http://status.aws.amazon.com/rss/all.rss" type="application/rss+xml" title="Amazon Web Services Status Feed"/>
+    <title type="text">Current service status feed for Amazon Web Services.</title>
+    <language>en-us</language>
+    <pubDate>Tue, 17 Nov 2015 05:18:14 PST</pubDate>
+    <updated>Tue, 17 Nov 2015 05:18:14 PST</updated>
+    <generator>AWS Service Health Dashboard RSS Generator</generator>
+    <ttl>5</ttl>
+
+	 
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 05:17:47 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447766267</guid>
+	  <description>We confirm continued delays to some CloudWatch metrics in the US-WEST-2 Region. We continue to work to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 04:26:25 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447763185</guid>
+	  <description>We continue to work to resolve the delays affecting some CloudWatch metrics in the US-WEST-2 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 03:44:58 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447760698</guid>
+	  <description>We can confirm delays in some CloudWatch metrics in the US-WEST-2 Region. We are actively working to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 03:03:32 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447758212</guid>
+	  <description>We are investigating increased delays for CloudWatch metrics in the US-WEST-2 Region. CloudWatch alarms may transition into "INSUFFICIENT_DATA" state if set on delayed metrics.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: Increased instance launch error rates and degraded volume performance</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 10 Nov 2015 11:04:09 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-west-1_1447182249</guid>
+	  <description>Between 9:15 AM and 10:47 AM PST, we experienced increased error rates for EBS-backed instance launches and degraded volume performance for a small number of volumes in a single Availability Zone in the US-WEST-1 Region. This issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Increased instance launch error rates and degraded volume performance</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 10 Nov 2015 10:29:24 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-west-1_1447180164</guid>
+	  <description>We can confirm increased error rates for new EBS-backed instance launches and degraded volume performance for a small number of volumes in a single Availability Zone in the US-WEST-1 Region. We are currently working to resolve this issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Increased instance launch error rates </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 10 Nov 2015 09:52:10 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-west-1_1447177930</guid>
+	  <description>We are investigating increased error rates for new instance launches in a single Availability Zone in the US-WEST-1 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Elevated email-sending API error rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri,  6 Nov 2015 13:19:34 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ses-us-east-1_1446844774</guid>
+	  <description>Between 11:38 AM and 12:45 PM PST we experienced elevated error rates for our email-sending API to the SMTP endpoint in the US-EAST-1 Region. This did not affect the SendEmail/SendRawEmail HTTP APIs. The issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Elevated email-sending API error rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri,  6 Nov 2015 13:00:15 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ses-us-east-1_1446843615</guid>
+	  <description>We've identified root cause and are seeing recovery for elevated error rates to our email-sending API in the US-EAST-1 Region for the SMTP endpoint. HTTP endpoints continue to operate normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Elevated email-sending API error rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri,  6 Nov 2015 12:29:53 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ses-us-east-1_1446841793</guid>
+	  <description>We are currently investigating elevated error rates for our email-sending API in the US-EAST-1 Region for the SMTP endpoint only.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Delayed metrics in SA-EAST-1</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Thu,  5 Nov 2015 02:20:00 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-sa-east-1_1446718800</guid>
+	  <description>Between 9:30 PM PST and 2:10 AM PST in the SA-EAST-1 Region, customers experienced increased delays in some metrics. During that time, alarms on delayed metrics may have transitioned into an INSUFFICIENT_DATA state. We have resolved the issue. Delayed metrics are in the process of backfilling in CloudWatch console graphs and for API retrieval. The CloudWatch service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Delayed metrics in SA-EAST-1</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Thu,  5 Nov 2015 02:08:00 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-sa-east-1_1446718080</guid>
+	  <description>We are still seeing recovery in the CloudWatch metric delays in the SA-EAST-1 region. We are continuing to work to fully resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Delayed metrics in SA-EAST-1</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Wed,  4 Nov 2015 23:16:00 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-sa-east-1_1446707760</guid>
+	  <description>We are still investigating delays with CloudWatch metrics in the SA-EAST-1 Region and are actively working to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Delayed metrics in SA-EAST-1</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Wed,  4 Nov 2015 22:32:00 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-sa-east-1_1446705120</guid>
+	  <description>We can confirm delays in some CloudWatch metrics in the SA-EAST-1 Region. We are actively working to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Delayed metrics in SA-EAST-1</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Wed,  4 Nov 2015 22:12:00 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-sa-east-1_1446703920</guid>
+	  <description>We are investigating increased delays for CloudWatch metrics in the SA-EAST-1 Region. CloudWatch alarms may transition into "INSUFFICIENT_DATA" state if set on delayed metrics.</description>
+	 </item>
+        
+  </channel>
+</rss>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Amazon Web Services Service Status</title>
+    <link>http://status.aws.amazon.com/</link>
+    <link rel="alternate" href="http://status.aws.amazon.com/rss/all.rss" type="application/rss+xml" title="Amazon Web Services Status Feed"/>
+    <title type="text">Current service status feed for Amazon Web Services.</title>
+    <language>en-us</language>
+    <pubDate>Fri, 20 Nov 2015 15:34:15 PST</pubDate>
+    <updated>Fri, 20 Nov 2015 15:34:15 PST</updated>
+    <generator>AWS Service Health Dashboard RSS Generator</generator>
+    <ttl>5</ttl>
+
+	 
+	 <item>
+	  <title type="text">Informational message: Elevated email-sending API error rates</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Fri, 20 Nov 2015 15:31:26 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ses-us-east-1_1448062286</guid>
+	  <description>Between 2:26 PM and 2:55 PM PST in the US-EAST-1 Region, customers experienced elevated error rates sending email to the SES SMTP interface. During that time, a portion of requests failed with a temporary authentication failure. Requests to the SES HTTP interface were unaffected, and all requests accepted successfully by SES have been processed normally. The issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Packet loss</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 08:36:54 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#directconnect-eu-west-1_1447778214</guid>
+	  <description>Between 5:40 AM and 8:20 AM PST we experienced packet loss between the Direct Connect location at TelecityGroup, London Docklands, and the EU-WEST-1 Region. An external facility providing Direct Connect connectivity to the EU-WEST-1 Region experienced power loss. This issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Packet loss</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 08:23:56 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#directconnect-eu-west-1_1447777436</guid>
+	  <description>We have recovered power in the impacted facility and are continuing to investigate and resolve intermittent packet loss and latency between the Direct Connect location at TelecityGroup, London Docklands, and the EU-WEST-1 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: [RESOLVED] Packet loss</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 07:36:00 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#directconnect-eu-west-1_1447774560</guid>
+	  <description>We can confirm intermittent packet loss between the Direct Connect location at TelecityGroup, London Docklands, and the EU-WEST-1 Region. An external facility providing Direct Connect connectivity to the EU-WEST-1 Region has experienced power loss. We are working with the service provider to mitigate impact and restore power.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: [RESOLVED] Packet loss</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 06:47:00 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#directconnect-eu-west-1_1447771620</guid>
+	  <description>We are investigating packet loss between the Direct Connect location at TelecityGroup, London Docklands, and the EU-WEST-1 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Packet loss </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 06:38:04 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#directoryservice-eu-west-1_1447771084</guid>
+	  <description>We are investigating packet loss between the Direct Connect location at TelecityGroup, London Docklands', and the EU-WEST-1 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: [RESOLVED] Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 06:12:46 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447769566</guid>
+	  <description>Between 02:14 AM PST and 05:51 AM PST in the US-WEST-2 Region, customers experienced increased delays in some metrics. During that time, alarms on delayed metrics may have transitioned into an INSUFFICIENT_DATA state. We have resolved the issue. Delayed metrics are in the process of backfilling in CloudWatch console graphs and for API retrieval. The CloudWatch service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 05:55:41 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447768541</guid>
+	  <description>We confirm continued delays to some CloudWatch metrics in the US-WEST-2 Region. We continue to work to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 05:17:47 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447766267</guid>
+	  <description>We confirm continued delays to some CloudWatch metrics in the US-WEST-2 Region. We continue to work to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 04:26:25 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447763185</guid>
+	  <description>We continue to work to resolve the delays affecting some CloudWatch metrics in the US-WEST-2 Region.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 03:44:58 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447760698</guid>
+	  <description>We can confirm delays in some CloudWatch metrics in the US-WEST-2 Region. We are actively working to resolve the issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Delayed metrics in US-WEST-2</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 17 Nov 2015 03:03:32 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#cloudwatch-us-west-2_1447758212</guid>
+	  <description>We are investigating increased delays for CloudWatch metrics in the US-WEST-2 Region. CloudWatch alarms may transition into "INSUFFICIENT_DATA" state if set on delayed metrics.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Service is operating normally: Increased instance launch error rates and degraded volume performance</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 10 Nov 2015 11:04:09 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-west-1_1447182249</guid>
+	  <description>Between 9:15 AM and 10:47 AM PST, we experienced increased error rates for EBS-backed instance launches and degraded volume performance for a small number of volumes in a single Availability Zone in the US-WEST-1 Region. This issue has been resolved and the service is operating normally.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Increased instance launch error rates and degraded volume performance</title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 10 Nov 2015 10:29:24 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-west-1_1447180164</guid>
+	  <description>We can confirm increased error rates for new EBS-backed instance launches and degraded volume performance for a small number of volumes in a single Availability Zone in the US-WEST-1 Region. We are currently working to resolve this issue.</description>
+	 </item>
+         
+	 <item>
+	  <title type="text">Informational message: Increased instance launch error rates </title>
+	  <link>http://status.aws.amazon.com/</link>
+	  <pubDate>Tue, 10 Nov 2015 09:52:10 PST</pubDate>
+	  <guid>http://status.aws.amazon.com/#ec2-us-west-1_1447177930</guid>
+	  <description>We are investigating increased error rates for new instance launches in a single Availability Zone in the US-WEST-1 Region.</description>
+	 </item>
+        
+  </channel>
+</rss>
