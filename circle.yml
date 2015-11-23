@@ -3,3 +3,8 @@ machine:
     America/New_York
   node:
     version: 4.1.0
+
+test:
+  override:
+    - npm test
+    - npm run integration
