@@ -117,7 +117,7 @@ describe('end-to-end simulation with rss and slack mocks', function () {
             }
             waitHandler.close();
           }
-        }, 5);
+        }, 50);
       });
 
       it(expectedMessageCounts[i].sent + ' total messages sent', function () {
