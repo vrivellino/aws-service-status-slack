@@ -13,7 +13,7 @@ if (process.env.hasOwnProperty('AWS_DEFAULT_REGION')) {
 
 describe('awsRegions', function() {
   var _this = this;
-  _this.awsRegionList = [];
+  _this.awsRegionList = ['us-gov-west-1'];
 
   before(function(done) {
     var ec2 = new AWS.EC2();
